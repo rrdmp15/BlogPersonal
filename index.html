@@ -8,6 +8,68 @@
     <script type="module" src="main.js" defer></script>
 </head>
 <body>
-    
+    <header>
+        <!-- Nav Bar  -->
+        <nav>
+            <div class="logo"></div>
+
+            <div class="navBtn">
+                <a href="#">business</a>
+                <a href="#">entertainment</a>
+                <a href="#">general</a>
+                <a href="#">health</a>
+                <a href="#">science</a>
+                <a href="#">sports</a>
+                <a href="#">technology</a>
+            </div>
+
+            <div class="search">
+                <input type="search" name="" id="">
+                <input type="submit" value="">
+            </div>
+        </nav>
+
+        <!-- Banner Slider -->
+        <div class="banner"></div>
+    </header>
+
+    <main>
+        <!-- Articles -->
+        <section class="articles">
+            <!-- section article's head -->
+            <div class="articlesHead">
+
+                <!-- Title according with the search -->
+               <h2 id="articlesTitle"></h2>
+
+               <!-- Order in which the articles will appear. -->
+               <select id="sortBy">
+                    <option value="relevancy">Relevancy</option>
+                    <option value="popularity">Popularity</option>
+                    <option value="publishedAt">Newest</option>
+               </select>
+            </div>
+
+            <!-- Here the articles are shown. -->
+            <div id="allarticles"></div>
+        </section>
+
+        <!-- Aside with categories and navigation -->
+        <aside></aside>
+
+        <!-- pagination -->
+        <nav>
+            <a href="#" class="back">Back</a>
+
+            <a href="#" class="next">Next</a>
+        </nav>
+    </main>
+
+    <!-- Footer with Credits -->
+    <footer>
+        <p>Blog built by <a href="https://github.com/rrdmp15">CodeByLissy</a>.</p>
+
+        <p><a href="#">Back to top</a></p>
+    </footer>
 </body>
 </html>
