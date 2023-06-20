@@ -6,6 +6,8 @@ export default{
         const back = document.querySelector('.back');
         const next = document.querySelector('.next');
         let currentPage;
+        let sortBy = document.querySelector('#sortBy');
+        let selectOption;
 
         navContainer.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
@@ -25,6 +27,11 @@ export default{
         next.addEventListener('click', ()=>{
             currentPage++;
             ws.postMessage({message: 'page', data: currentPage});
+        })
+
+        sortBy.addEventListener('change', (e)=>{
+            selectOption = e.target.value;
+            ws.postMessage({message: 'sortBy', data: selectOption});
         })
 
         ws.onmessage = (e)=>{
