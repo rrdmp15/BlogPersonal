@@ -8,13 +8,17 @@ export default{
         let currentPage;
         let sortBy = document.querySelector('#sortBy');
         let selectOption;
+        let span = document.querySelector("#articlesTitle > span");
+        let title = 'General';
 
         navContainer.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
               e.preventDefault();
               const category = e.target.textContent.toLowerCase();
               currentPage = 1;
-              
+              title = category;
+              span.innerHTML = title;
+
               ws.postMessage({message: 'category', data: category});
             }
         })
@@ -39,6 +43,7 @@ export default{
 
             if(message == 'articles'){
                 allArticles.innerHTML = data;
+                span.innerHTML = title;
             }
         }
         

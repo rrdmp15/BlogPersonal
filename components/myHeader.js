@@ -15,7 +15,9 @@ export default {
         // Checking if the message is 'banner'
         if (message === 'banner') {
           // Inserting the data as HTML at the end of the 'banner' element
-          banner.insertAdjacentHTML('beforeend', data);
+          for (const i of data) {
+            banner.insertAdjacentHTML('beforeend', i);
+          }
         }
       };
     },
