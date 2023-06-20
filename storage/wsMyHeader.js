@@ -16,7 +16,10 @@ const fetchBanner = async () => {
     const resul = await res.json();
 
     // Extracting the first article from the response
-    let firstArticle = resul.articles[0];
+    let firstArticle = resul.articles.find((article) => {
+      return article.title && article.description && article.urlToImage && article.url;
+    });
+    
 
     // Creating an HTML template with the article information
     template = `

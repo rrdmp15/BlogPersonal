@@ -1,7 +1,7 @@
 let template;
 
-let fetchArticles = async(category) => {
-    const res = await fetch(`https://newsapi.org/v2/top-headlines?category=${category}&pageSize=100&apiKey=f19fa1d5f0d243b2a6ff99ccf04fce40`);
+let fetchArticles = async(category, page) => {
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&pageSize=24&page=${page}&apiKey=f19fa1d5f0d243b2a6ff99ccf04fce40`);
     const resul = await res.json();
 
     let allArticles = [];
@@ -38,13 +38,22 @@ let fetchArticles = async(category) => {
     postMessage({message: 'articles', data: allArticles});
 }
 
-
-fetchArticles('general');
+let categories = 'general';
+let pages = 1;
 
 onmessage = async(e) => {
     let {message, data} = e.data;
-    if(message === 'category'){
-        fetchArticles(data);
+
+    switch(message){
+        case 'category':
+            categories = data;
+            break;
+        
+        case 'page':
+            pages = data;
+            break;
     }
 
 }
+
+fetchArticles(categories, pages);
